@@ -20,11 +20,19 @@
   <body>
     <div class="container-fluid">
       <p>
-        
-      </p>
+      <h3>Passwort Generator v.1.0</h3></p>
+      <form action="index.php" method="POST">
+        <label for="minLength">Min. Länge:</label><input type="text" id="minLength" name="minLength" size="2" /><br />
+        <label for="maxLength">Max. Länge:</label><input type="text" id="maxLength" name="maxLength" size="2" /><br />
+        <button type="submit" value="submit">Generieren!</button>
+      </form>
     <?php
      include('pwgen.php');
-     echo "<b>Passwort:</b>".getPass(2,8,4);
+     if (isset($_POST['minLength'])) {
+      $minLength=intval($_POST['minLength']);
+      $maxLength=intval($_POST['maxLength']);
+       echo "<b>Passwort:</b>".getPass(2,$minLength, $maxLength); }
+       else echo "Bitte Daten eingeben."
      ?>
    </div>
 

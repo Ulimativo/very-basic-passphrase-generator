@@ -1,10 +1,10 @@
 
 <?php
 
-function getPass($wordCount, $maxLength, $minLength) {
+function getPass($wordCount, $minLength, $maxLength) {
 
 $phraseList="Auto,Bahn,Zug,Hafen,Schiff,Boot,Depot,Holz,Farbe,Schrift,Name,Kopf,Hand,Blume,Wald,Baum,
-             Eisen,Kupfer,Metall,Rohr,Kind,Mutter,Vater,Torte,Geburtstag,Kerze,Hyper,Mega,Kommando,Tatze,Katze,Ratte";
+             Eisen,Kupfer,Metall,Rohr,Kind,Mutter,Vater,Torte,Geburtstag,Kerze,Hyper,Mega,Kommando,Tatze,Katze,Ratte,Tat";
 $phrases=explode(",", $phraseList);
 $numeric='0123456789';
 $pw='';
@@ -13,7 +13,7 @@ $i=0;
 
 while($i<$wordCount) {
   $phrase=array_rand($phrases, 1);
-  if (strlen($phrases[$phrase])<=$maxLength-2) {
+  if ((strlen($phrases[$phrase])<=$maxLength-2) && (strlen($phrases[$phrase])>=$minLength-2)) {
     $pw.=$phrases[$phrase];
     $i++;
   } // end if
