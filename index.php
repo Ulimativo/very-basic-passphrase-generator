@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Password Generator</title>
+    <title>Passphrase Generator</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
   <body>
     <div class="container-fluid">
       <p>
-      <h3>Passwort Generator v.1.0</h3></p>
+      <h3>Passphrase Generator v.1.0</h3></p>
       <form action="index.php" method="POST">
         <label for="minLength">Min. Länge:</label><input type="text" id="minLength" name="minLength" size="2" /><br />
         <label for="maxLength">Max. Länge:</label><input type="text" id="maxLength" name="maxLength" size="2" /><br />
@@ -32,8 +32,9 @@
       $minLength=intval($_POST['minLength']);
       $maxLength=intval($_POST['maxLength']);
        echo "<b>Passwort:</b>".getPass(2,$minLength, $maxLength); }
-       else echo "Bitte Daten eingeben."
+       else echo "Bitte Daten eingeben.";
      ?>
+
    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
