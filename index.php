@@ -1,28 +1,36 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Generator</title>
 
-function getPass($wordCount, $maxLength, $minLength) {
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-$phraseList="Auto,Bahn,Zug,Hafen,Schiff,Boot,Depot,Holz,Farbe,Schrift,Name,Kopf,Hand,Blume,Wald,Baum,
-             Eisen,Kupfer,Metall,Rohr,Kind,Mutter,Vater,Torte,Geburtstag,Kerze,Hyper,Mega,Kommando,Tatze,Katze,Ratte";
-$phrases=explode(",", $phraseList);
-$numeric='0123456789';
-$pw='';
-$len=strlen($numeric);
-$i=0;
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-fluid">
+      <p>
+        
+      </p>
+    <?php
+     include('pwgen.php');
+     echo "<b>Passwort:</b>".getPass(2,8,4);
+     ?>
+   </div>
 
-while($i<$wordCount) {
-  $phrase=array_rand($phrases, 1);
-  if (strlen($phrases[$phrase])<=$maxLength-2) {
-    $pw.=$phrases[$phrase];
-    $i++;
-  } // end if
-} // end while
-
-$pw.=substr($numeric, rand(0, $len-1), 1);
-$pw.=substr($numeric, rand(0, $len-1), 1);
-
-return $pw;
-};
-
-echo getPass(2,8,4); // Example: get a Password of 2 Phrases, with a max passwort length of 8, and a minimum length of 4.
- ?>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
