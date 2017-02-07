@@ -5,13 +5,7 @@ function getPass($wordCount, $maxLength, $minLength) {
 $phraseList="Auto,Bahn,Zug,Hafen,Schiff,Boot,Depot,Holz,Farbe,Schrift,Name,Kopf,Hand,Blume,Wald,Baum,
              Eisen,Kupfer,Metall,Rohr,Kind,Mutter,Vater,Torte,Geburtstag,Kerze,Hyper,Mega,Kommando,Tatze,Katze,Ratte";
 $phrases=explode(",", $phraseList);
-
-$alpha='abcdefghijklmnopqrstuvwxyz';
-$alphaUpper=strtoupper($alpha);
 $numeric='0123456789';
-$special=".-+=_,!@$#*%<>[]{}";
-$chars="";
-
 $pw='';
 $len=strlen($numeric);
 $i=0;
@@ -23,7 +17,6 @@ while($i<$wordCount) {
     $i++;
   } // end if
 } // end while
-
 
 $pw.=substr($numeric, rand(0, $len-1), 1);
 $pw.=substr($numeric, rand(0, $len-1), 1);
