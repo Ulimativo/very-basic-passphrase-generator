@@ -1,28 +1,35 @@
 <?php
 
-function getPass($length) {
+function getPass($wordCount, $maxLength, $minLength) {
 
 $phraseList="Auto,Bahn,Zug,Hafen,Schiff,Boot,Depot,Holz,Farbe,Schrift,Name,Kopf,Hand,Blume,Wald,Baum,
-             Eisen,Kupfer,Metall,Rohr,Kind,Mutter,Vater,Torte,Geburtstag,Kerze";
+             Eisen,Kupfer,Metall,Rohr,Kind,Mutter,Vater,Torte,Geburtstag,Kerze,Hyper,Mega,Kommando,Tatze,Katze,Ratte";
 $phrases=explode(",", $phraseList);
+
 $alpha='abcdefghijklmnopqrstuvwxyz';
 $alphaUpper=strtoupper($alpha);
 $numeric='0123456789';
 $special=".-+=_,!@$#*%<>[]{}";
 $chars="";
 
-$randPhrases=array_rand($phrases,$length);
 $pw='';
 $len=strlen($numeric);
+$i=0;
 
-foreach ($randPhrases as $phrase) {
-  $pw.=$phrases[$phrase];
-}
+while($i<$wordCount) {
+  $phrase=array_rand($phrases, 1);
+  if (strlen($phrases[$phrase])<=$maxLength-2) {
+    $pw.=$phrases[$phrase];
+    $i++;
+  } // end if
+} // end while
+
+
 $pw.=substr($numeric, rand(0, $len-1), 1);
 $pw.=substr($numeric, rand(0, $len-1), 1);
 
 return $pw;
 };
 
-echo getPass(2);
+echo getPass(2,8,4); // Example: get a Password of 2 Phrases, with a max passwort length of 8, and a minimum length of 4.
  ?>
